@@ -19,6 +19,8 @@ class LoginPage extends StatelessWidget {
         return Scaffold(
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+
             child: Column(
               children: [
                 Container(
@@ -86,7 +88,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 70),
-                CustomBotton(),
+                const CustomBotton(
+                  text: 'Sign in',
+                ),
                 SizedBox(
                   height: h * .09,
                 ),

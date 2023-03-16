@@ -18,6 +18,7 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -68,7 +69,9 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 70,
                   ),
-                  const CustomBotton(),
+                  const CustomBotton(
+                    text: 'Sign Up',
+                  ),
                   SizedBox(
                     height: h * .1,
                   ),
