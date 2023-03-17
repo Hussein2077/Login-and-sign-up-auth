@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:getx/custom_botton.dart';
-import 'package:getx/custom_text_feild.dart';
+import 'package:getx/controller/auth_controller.dart';
+import 'package:getx/widgets/custom_botton.dart';
+import 'package:getx/widgets/custom_text_feild.dart';
 import 'package:get/get.dart';
+
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
     List<String> images = [
       'f.png',
       'g.png',
@@ -51,7 +56,8 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  const CustomTextFeild(
+                  CustomTextFeild(
+                    controller: emailController,
                     obscureText: false,
                     label: 'Email',
                     hint: 'Enter your Email',
@@ -60,7 +66,8 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const CustomTextFeild(
+                  CustomTextFeild(
+                    controller: passwordController,
                     obscureText: true,
                     label: 'Password',
                     hint: 'Enter your Password',
@@ -69,14 +76,18 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 70,
                   ),
-                   const CustomButton(
-
+                  CustomButton(
+                    onTap: () {
+                      AuthController.authController
+                          .register(emailController.text.trim(), passwordController.text.trim());
+                    },
                     text: 'Sign Up',
-                  ),  const SizedBox(
+                  ),
+                  const SizedBox(
                     height: 20,
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Get.back();
                     },
                     child: const Text(

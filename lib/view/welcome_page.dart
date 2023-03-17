@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'custom_botton.dart';
-
+import '../widgets/custom_botton.dart';
+import 'package:get/get.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
@@ -64,8 +64,11 @@ class WelcomePage extends StatelessWidget {
 
             ),
             SizedBox(height: h*.2,),
-            const CustomButton(
-              text: 'Sign Up',
+             CustomButton(
+              onTap: (){
+            Get.back();
+              },
+              text: 'Sign Out',
             ),
           ],
         ),

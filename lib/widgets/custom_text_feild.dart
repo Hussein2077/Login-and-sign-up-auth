@@ -6,13 +6,13 @@ class CustomTextFeild extends StatelessWidget {
       required this.suffixIcon,
       required this.hint,
    required   this.obscureText,
-      required this.label})
+      required this.label, required this.controller})
       : super(key: key);
   final IconData suffixIcon;
   final String hint;
   final bool obscureText;
   final String label;
-
+final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +28,7 @@ class CustomTextFeild extends StatelessWidget {
             )
           ]),
       child: TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
             suffixIcon: Icon(
