@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller.dart';
 import 'package:getx/custom_botton.dart';
+import 'package:getx/routes.dart';
+import 'package:getx/signup_page.dart';
 
 import 'custom_text_feild.dart';
 
@@ -20,7 +23,6 @@ class LoginPage extends StatelessWidget {
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-
             child: Column(
               children: [
                 Container(
@@ -34,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
                   width: w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +90,10 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 70),
-                const CustomBotton(
+                 CustomButton(
+                  onTap: (){
+                    Get.toNamed(welcome);
+                  },
                   text: 'Sign in',
                 ),
                 SizedBox(
@@ -101,10 +106,12 @@ class LoginPage extends StatelessWidget {
                         color: Colors.grey[500],
                         fontSize: 20,
                       ),
-                      children: const [
+                      children: [
                         TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Get.to(()=>const SignUpPage()),
                             text: 'Create',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 22,
                             ))

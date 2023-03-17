@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getx/custom_botton.dart';
 import 'package:getx/custom_text_feild.dart';
-
+import 'package:get/get.dart';
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
@@ -69,8 +69,23 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 70,
                   ),
-                  const CustomBotton(
+                   const CustomButton(
+
                     text: 'Sign Up',
+                  ),  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: const Text(
+                      'Do you have account?',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black54,
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: h * .1,

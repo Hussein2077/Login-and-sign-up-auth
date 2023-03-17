@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/routes.dart';
 import 'package:getx/login_page.dart';
-import 'package:getx/signup_page.dart';
-import 'package:getx/welcome_page.dart';
+import 'package:getx/routes.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,9 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePage(),
+      home: const LoginPage(),
+      routes: routes,
+
 
     );
   }

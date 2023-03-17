@@ -64,7 +64,7 @@ class WelcomePage extends StatelessWidget {
 
             ),
             SizedBox(height: h*.2,),
-            const CustomBotton(
+            const CustomButton(
               text: 'Sign Up',
             ),
           ],
