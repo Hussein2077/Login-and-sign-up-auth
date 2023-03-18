@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:getx/controller/auth_controller.dart';
 
 import '../widgets/custom_botton.dart';
-import 'package:get/get.dart';
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
 
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key, required this.email}) : super(key: key);
+final String? email;
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -66,7 +67,7 @@ class WelcomePage extends StatelessWidget {
             SizedBox(height: h*.2,),
              CustomButton(
               onTap: (){
-            Get.back();
+            AuthController.authController.logOut();
               },
               text: 'Sign Out',
             ),

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFeild extends StatelessWidget {
-  const CustomTextFeild(
+class CustomTextField extends StatelessWidget {
+  const CustomTextField(
       {Key? key,
       required this.suffixIcon,
       required this.hint,
    required   this.obscureText,
-      required this.label, required this.controller})
+      required this.label, required this.controller, this.onTap})
       : super(key: key);
   final IconData suffixIcon;
   final String hint;
   final bool obscureText;
   final String label;
+  final  Function()? onTap;
 final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,8 @@ final TextEditingController controller;
               offset: const Offset(1, 1),
             )
           ]),
-      child: TextField(
+      child: TextFormField(
+        onTap: onTap,
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(

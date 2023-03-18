@@ -56,7 +56,10 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  CustomTextFeild(
+                  CustomTextField(
+                    onTap: (){
+
+                    },
                     controller: emailController,
                     obscureText: false,
                     label: 'Email',
@@ -66,7 +69,7 @@ class SignUpPage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomTextFeild(
+                  CustomTextField(
                     controller: passwordController,
                     obscureText: true,
                     label: 'Password',
@@ -78,8 +81,7 @@ class SignUpPage extends StatelessWidget {
                   ),
                   CustomButton(
                     onTap: () {
-                      AuthController.authController
-                          .register(emailController.text.trim(), passwordController.text.trim());
+                      AuthController.authController.register(emailController.text.trim(), passwordController.text.trim());
                     },
                     text: 'Sign Up',
                   ),

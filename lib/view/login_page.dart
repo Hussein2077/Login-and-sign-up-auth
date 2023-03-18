@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                   CustomTextFeild(
+                   CustomTextField(
                     controller: emailController,
                     obscureText: false,
                     label: 'Email',
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                     suffixIcon: Icons.email_outlined,
                   ),
                   const SizedBox(height: 20),
-                   CustomTextFeild(
+                   CustomTextField(
   controller: passwordController,
                     obscureText: true,
                     label: 'Password',

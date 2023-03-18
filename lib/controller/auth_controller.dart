@@ -22,13 +22,13 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => const LoginPage());
     } else {
-      Get.offAll(() => const WelcomePage());
+      Get.offAll(() =>  WelcomePage(email: user.email,));
     }
   }
 
-  void register(String email, password) {
+  void register(String email,String password) async {
     try {
-      auth.createUserWithEmailAndPassword(
+     await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -47,5 +47,30 @@ class AuthController extends GetxController {
                 color: Colors.white,
               )));
     }
+  }
+  void login(String email,String password) async {
+    try {
+      await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } catch (e) {
+      Get.snackbar('About login', 'Login message',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.redAccent,
+          titleText: const Text(
+            'Login field',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          messageText: Text(e.toString(),
+              style: const TextStyle(
+                color: Colors.white,
+              )));
+    }
+  }
+  void logOut()async{
+  await  auth.signOut();
   }
 }
